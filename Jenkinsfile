@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('GetProject') { // Stage to clone the project repository
             steps {
-                git branch: 'main', url: 'https://github.com/cdtm0124/cianspetitions.git' // Clones the main branch of the GitHub repository
+                git branch: 'main', url: 'https://github.com/cdtm0124/cianspetitions.git' // Clones the main branch of the GitHub repo
             }
         }
 
