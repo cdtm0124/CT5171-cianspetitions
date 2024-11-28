@@ -99,6 +99,21 @@ public class MyController {
         }
     }
 
+    // Mapping to search petitions
+    @GetMapping("/search")
+    public String searchPetitions(@RequestParam(value = "query", required = false) String query, Model model) {
+        List<Petition> searchResults = new ArrayList<>();
+        if (query != null && !query.trim().isEmpty()) {
+            for (Petition petition : petitions) {
+                if (petition.getTitle().toLowerCase().contains(query.toLowerCase())) {
+                    searchResults.add(petition);
+                }
+            }
+        }
+        model.addAttribute("searchResults", searchResults);
+        return "search";
+    }
+
     // Mapping to sign a petition form
     @GetMapping("/sign")
     public String signPetitionForm(@RequestParam int index, Model model) {
@@ -126,5 +141,4 @@ public class MyController {
             return "redirect:/error";
         }
     }
-
 }
