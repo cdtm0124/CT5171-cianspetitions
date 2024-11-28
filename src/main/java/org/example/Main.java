@@ -1,13 +1,14 @@
-package org.example.cianspetitions;
+package org.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-public class CianspetitionsApplication {
-
+@RestController
+public class Main {
 	public static void main(String[] args) {
-		SpringApplication.run(CianspetitionsApplication.class, args);
+		SpringApplication.run(Main.class, args);
 	}
-
 }
+
