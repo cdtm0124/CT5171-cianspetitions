@@ -99,4 +99,32 @@ public class MyController {
         }
     }
 
+    // Mapping to sign a petition form
+    @GetMapping("/sign")
+    public String signPetitionForm(@RequestParam int index, Model model) {
+        if (index >= 0 && index < petitions.size()) {
+            model.addAttribute("index", index);
+            return "sign";
+        } else {
+            model.addAttribute("errorMessage", "Petition not found.");
+            return "error";
+        }
+    }
+
+    // Mapping for signing a petition
+    @PostMapping("/sign")
+    public String signPetition(
+            @RequestParam int index,
+            @RequestParam String name,
+            @RequestParam String email
+    ) {
+        if (index >= 0 && index < petitions.size()) {
+            Petition petition = petitions.get(index);
+            petition.addSignature(new Signature(name, email));
+            return "redirect:/view?index=" + index;
+        } else {
+            return "redirect:/error";
+        }
+    }
+
 }
