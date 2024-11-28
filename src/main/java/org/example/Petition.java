@@ -10,7 +10,7 @@ public class Petition {
     private String author; // Author of the petition
     private List<org.example.Signature> signatures = new ArrayList<>(); // List to store signatures
 
-    // Constructor to initialize a petition with title, description, and author
+    // Constructor to initialise a petition with title, description, and author
     public Petition(String title, String description, String author) {
         this.title = title;
         this.description = description;

@@ -13,7 +13,7 @@
 	</parent>
 
 	<!-- Maven coordinates for this project -->
-	<groupId>org.example</groupId> <!-- Unique identifier for your organization/project -->
+	<groupId>org.example</groupId> <!-- Unique identifier for your organisation/project -->
 	<artifactId>cianspetitions</artifactId> <!-- Project name -->
 	<version>0.0.1-SNAPSHOT</version> <!-- Version of the project -->
 

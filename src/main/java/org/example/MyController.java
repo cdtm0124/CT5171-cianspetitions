@@ -16,7 +16,7 @@ public class MyController {
     // A list to store petitions
     private List<Petition> petitions;
 
-    // Constructor to initialize dummy petitions
+    // Constructor to initialise dummy petitions
     public MyController() {
         this.petitions = new ArrayList<>(); // Initialize the ArrayList
 

@@ -5,7 +5,7 @@ public class Signature {
     private String name; // Name of the person signing
     private String email; // Email of the person signing
 
-    // Constructor to initialize a signature with name and email
+    // Constructor to initialise a signature with name and email
     public Signature(String name, String email) {
         this.name = name;
         this.email = email;
