@@ -1,65 +1,88 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"> <!-- Declares the document type and includes the Thymeleaf namespace -->
 <head>
-    <title>Search Petitions</title>
+    <title>Search Petitions</title> <!-- Sets the title of the page -->
+
+    <!-- Link to Bootstrap CSS for styling -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
+        /* Sets the background color for the entire body */
         body {
-            background-color: #f8f9fa;
+            background-color: #f8f9fa; /* Light gray background for a clean appearance */
         }
+        /* Adds shadow and rounded corners for cards */
         .card {
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Subtle shadow for depth */
+            border-radius: 10px; /* Rounded corners */
         }
+        /* Primary button styling with a green theme */
         .btn-primary {
-            background-color: #28a745;
-            border-color: #28a745;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: #28a745; /* Default green background */
+            border-color: #28a745; /* Matches border with button background */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Shadow for a modern effect */
         }
+        /* Hover effect for the primary button */
         .btn-primary:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
+            background-color: #218838; /* Darker green on hover */
+            border-color: #1e7e34; /* Darker border on hover */
         }
+        /* Styling for the main container holding the content */
         .container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            background-color: white; /* White background for contrast */
+            border-radius: 10px; /* Rounded corners for a polished look */
+            padding: 30px; /* Internal spacing */
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Subtle shadow for depth */
         }
+        /* Adds bottom margin for the navigation bar */
         nav.navbar {
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* Spacing below the navbar */
         }
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" th:href="@{/}">Home</a>
+<!-- Navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- Sets a light-themed navigation bar -->
+    <a class="navbar-brand" th:href="@{/}">Home</a> <!-- Link to navigate back to the homepage -->
 </nav>
 
-<div class="container mt-5">
-    <h1 class="text-center mb-4">Search for a Petition</h1>
-    <div class="card p-4">
+<!-- Main container for the search functionality -->
+<div class="container mt-5"> <!-- Adds a top margin for spacing -->
+    <h1 class="text-center mb-4">Search for a Petition</h1> <!-- Page title centered with bottom margin -->
+
+    <!-- Card container for the search form -->
+    <div class="card p-4"> <!-- Padding inside the card for spacing -->
+        <!-- Search form with GET method -->
         <form th:action="@{/search}" method="get" class="form-inline justify-content-center">
+            <!-- Search input field -->
             <div class="form-group mb-2">
-                <label for="query" class="sr-only">Search:</label>
-                <input type="text" id="query" name="query" class="form-control mr-2" placeholder="Enter petition title" required>
+                <label for="query" class="sr-only">Search:</label> <!-- Label for screen readers -->
+                <input type="text" id="query" name="query" class="form-control mr-2" placeholder="Enter petition title" required> <!-- Input for the search query -->
             </div>
+            <!-- Submit button for the search form -->
             <button type="submit" class="btn btn-primary mb-2">Search</button>
         </form>
     </div>
 
-    <div class="mt-4">
-        <h2>Search Results</h2>
-        <ul class="list-group">
+    <!-- Section for displaying search results -->
+    <div class="mt-4"> <!-- Adds top margin for spacing -->
+        <h2>Search Results</h2> <!-- Subheading for the results section -->
+
+        <!-- List of search results dynamically generated with Thymeleaf -->
+        <ul class="list-group"> <!-- Unordered list styled with Bootstrap -->
+            <!-- Iterates over the "searchResults" variable provided by the server -->
             <li th:each="petition, iterStat : ${searchResults}" class="list-group-item d-flex justify-content-between align-items-center">
+                <!-- Link to view a specific petition, with dynamic URL using the index -->
                 <a th:href="@{/view(index=${iterStat.index})}" th:text="${petition.title}"></a>
+                <!-- Displays the author of the petition as a badge -->
                 <span class="badge badge-secondary" th:text="${petition.author}"></span>
             </li>
         </ul>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Include Bootstrap JavaScript dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> <!-- jQuery for DOM manipulation -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS for interactive components -->
 </body>
 </html>
