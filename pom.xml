@@ -1,83 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- Specifies the POM file version and schema -->
 	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent configuration from Spring Boot -->
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<groupId>org.springframework.boot</groupId> <!-- Group ID for Spring Boot's starter parent -->
+		<artifactId>spring-boot-starter-parent</artifactId> <!-- Artifact ID for the starter parent -->
+		<version>3.1.4</version> <!-- Spring Boot version -->
+		<relativePath/> <!-- Resolves parent from the repository -->
 	</parent>
-	<groupId>org.example</groupId>
-	<artifactId>cianspetitions</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+
+	<!-- Maven coordinates for this project -->
+	<groupId>org.example</groupId> <!-- Unique identifier for your organization/project -->
+	<artifactId>cianspetitions</artifactId> <!-- Project name -->
+	<version>0.0.1-SNAPSHOT</version> <!-- Version of the project -->
+
+	<!-- Specifies the output package type as WAR (for deployment to a servlet container) -->
 	<packaging>war</packaging>
-	<name>cianspetitions</name>
-	<description>Create Custom Petitions Today</description>
-	<url/>
+
+	<!-- Additional metadata about the project -->
+	<name>cianspetitions</name> <!-- Descriptive project name -->
+	<description>Create Custom Petitions Today</description> <!-- Short project description -->
+	<url/> <!-- Placeholder for the project's URL -->
 	<licenses>
-		<license/>
+		<license/> <!-- Placeholder for license information -->
 	</licenses>
 	<developers>
-		<developer/>
+		<developer/> <!-- Placeholder for developer information -->
 	</developers>
 	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
+		<connection/> <!-- Placeholder for source control management connection -->
+		<developerConnection/> <!-- Placeholder for developer SCM connection -->
+		<tag/> <!-- Placeholder for version tag -->
+		<url/> <!-- Placeholder for SCM URL -->
 	</scm>
 
+	<!-- Project properties -->
 	<properties>
-		<java.version>17</java.version>
-		<maven.compiler.source>8</maven.compiler.source>
-		<maven.compiler.target>8</maven.compiler.target>
+		<java.version>17</java.version> <!-- Specifies Java version compatibility -->
+		<maven.compiler.source>8</maven.compiler.source> <!-- Compiler source version -->
+		<maven.compiler.target>8</maven.compiler.target> <!-- Compiler target version -->
 	</properties>
 
+	<!-- Dependencies for the project -->
 	<dependencies>
+		<!-- Spring Boot starter for web applications -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		<!-- Spring Boot starter for Thymeleaf templates -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<!-- Spring Boot starter for Tomcat, with provided scope (since we're deploying as a WAR) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
+			<scope>provided</scope> <!-- Tomcat is provided by the application server -->
 		</dependency>
+		<!-- Spring Boot starter for testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<scope>test</scope> <!-- Used for testing only -->
 		</dependency>
 	</dependencies>
 
+	<!-- Build configuration -->
 	<build>
 		<plugins>
+			<!-- Plugin to package the project as a Spring Boot application -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!-- Plugin to execute Java code (useful for standalone scripts) -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>3.1.0</version> <!-- Ensure you are using a compatible version -->
+				<version>3.1.0</version> <!-- Plugin version -->
 				<executions>
 					<execution>
 						<goals>
-							<goal>java</goal>
+							<goal>java</goal> <!-- Goal to execute Java code -->
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>org.example.Main</mainClass> <!-- Replace with your actual Main class -->
+					<mainClass>org.example.Main</mainClass> <!-- Main class entry point -->
 				</configuration>
 			</plugin>
 		</plugins>
+		<!-- Final name of the WAR file produced -->
 		<finalName>${project.artifactId}</finalName>
 	</build>
-
 </project>
