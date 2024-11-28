@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <title>Create Petition</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 10px;
+    }
+    .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+    .btn-primary:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+    h1, h2 {
+        color: #28a745;
+    }
+    .container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" th:href="@{/}">Home</a>
+</nav>
+<div class="container mt-5">
+  <h1 class="text-center mb-4">Create a New Petition</h1>
+  <form th:action="@{/create}" method="post">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" class="form-control" required>
+    </div>
 
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" class="form-control" rows="3" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author" class="form-control" required>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary">Submit Petition</button>
+    </div>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
