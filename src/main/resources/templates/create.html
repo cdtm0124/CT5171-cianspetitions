@@ -1,65 +1,85 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Create Petition</title>
+  <title>Create Petition</title> <!-- Sets the title of the web page -->
+
+  <!-- Link to the Bootstrap CSS for responsive and modern styling -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
   <style>
+    /* General styling for the body background */
     body {
-        background-color: #f8f9fa;
+        background-color: #f8f9fa; /* Light gray background for a clean appearance */
     }
+    /* Styling for card elements to add shadow and rounded corners */
     .card {
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Subtle shadow for depth */
+        border-radius: 10px; /* Smooth, rounded edges for a modern look */
     }
+    /* Custom styling for primary buttons */
     .btn-primary {
-        background-color: #28a745;
-        border-color: #28a745;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        background-color: #28a745; /* Green background for buttons */
+        border-color: #28a745; /* Matches the button's border with the background */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Adds depth to buttons */
     }
+    /* Hover effect for primary buttons */
     .btn-primary:hover {
-        background-color: #218838;
-        border-color: #1e7e34;
+        background-color: #218838; /* Darker green for hover state */
+        border-color: #1e7e34; /* Slightly darker border when hovered */
     }
+    /* Styling for headers (h1, h2) with a consistent green color */
     h1, h2 {
-        color: #28a745;
+        color: #28a745; /* Matches the green theme of buttons */
     }
+    /* Styling for the main container where the form is displayed */
     .container {
-        background-color: white;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        background-color: white; /* White background for contrast */
+        border-radius: 10px; /* Rounded edges for a polished look */
+        padding: 30px; /* Spacing within the container */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Subtle shadow for depth */
     }
   </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" th:href="@{/}">Home</a>
+<!-- Navigation bar at the top of the page -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- Sets the navigation bar style -->
+  <a class="navbar-brand" th:href="@{/}">Home</a> <!-- Link to navigate back to the homepage -->
 </nav>
-<div class="container mt-5">
-  <h1 class="text-center mb-4">Create a New Petition</h1>
-  <form th:action="@{/create}" method="post">
+
+<!-- Main content section where the form is displayed -->
+<div class="container mt-5"> <!-- Adds top margin for spacing -->
+  <h1 class="text-center mb-4">Create a New Petition</h1> <!-- Page title centered with bottom margin -->
+
+  <!-- Petition creation form with a POST method -->
+  <form th:action="@{/create}" method="post"> <!-- Uses Thymeleaf to map the form action -->
+
+    <!-- Form group for the title input -->
     <div class="form-group">
-      <label for="title">Title:</label>
-      <input type="text" id="title" name="title" class="form-control" required>
+      <label for="title">Title:</label> <!-- Label for the title input field -->
+      <input type="text" id="title" name="title" class="form-control" required> <!-- Input for the petition title -->
     </div>
 
+    <!-- Form group for the description text area -->
     <div class="form-group">
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" class="form-control" rows="3" required></textarea>
+      <label for="description">Description:</label> <!-- Label for the description field -->
+      <textarea id="description" name="description" class="form-control" rows="3" required></textarea> <!-- Multi-line input for petition description -->
     </div>
 
+    <!-- Form group for the author input -->
     <div class="form-group">
-      <label for="author">Author:</label>
-      <input type="text" id="author" name="author" class="form-control" required>
+      <label for="author">Author:</label> <!-- Label for the author input field -->
+      <input type="text" id="author" name="author" class="form-control" required> <!-- Input for the petition author's name -->
     </div>
 
+    <!-- Centered submit button for the form -->
     <div class="text-center">
-      <button type="submit" class="btn btn-primary">Submit Petition</button>
+      <button type="submit" class="btn btn-primary">Submit Petition</button> <!-- Submit button styled with Bootstrap -->
     </div>
   </form>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Include Bootstrap JavaScript dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> <!-- jQuery library for lightweight DOM manipulation -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script> <!-- Bootstrap JS bundle for interactive components -->
 </body>
 </html>
